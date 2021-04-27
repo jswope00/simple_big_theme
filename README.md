@@ -97,3 +97,4 @@ For a page that already exists like about.html or tos.html, simply copy the html
 For a page that does not exist (e.g. my-about.html), you will need to create the file in the static_templates directory and also update your MKTG_UR
 L_LINK_MAP in your configuration file (e.g. lms.yml or lms.env.json). Make sure to restart lms and cms after you make any changes to your configurat
 ion files.
+
