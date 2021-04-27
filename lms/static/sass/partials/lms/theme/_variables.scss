@@ -1,0 +1,17 @@
+// ## COLORS ##
+
+// Primary is your most prominent color in the theme. Usually, a brand color
+$primary: #035167;
+$m-blue-d3: #035167;
+// Inverse is your page background and "inverse" color. usually White.
+$inverse: #ffffff;
+
+
+// ## FONTS ##
+
+$font-family-sans-serif: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+
+
+// Default bootstrap theming
+  
+@import 'edx-bootstrap/sass/open-edx/theme';

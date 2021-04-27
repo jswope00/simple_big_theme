@@ -1,0 +1,49 @@
+## mako
+<%page expression_filter="h"/>
+<%!
+  from django.urls import reverse
+  from django.utils.translation import ugettext as _
+  from lms.djangoapps.branding.api import get_footer
+  from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
+  from datetime import datetime
+  import pytz
+%>
+<% footer = get_footer(is_secure=is_secure) %>
+<% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
+<%namespace name='static' file='static_content.html'/>
+
+<div class="wrapper wrapper-footer">
+   <footer id="footer-openedx" class="grid-container">
+      <div class="colophon footer-menu">
+
+         <div class="theme-footer_col-1">
+            <h2 class="theme-footer_col-header">Information</h2>
+            <div class="theme-footer_col-holder">
+               <a class="theme-footer_col-link" target="_blank" href="/about">About Us</a>
+            </div>
+            <div class="theme-footer_col-holder">
+               <a class="theme-footer_col-link" target="_blank" href="/courses">Find Courses</a>
+            </div>
+         </div>
+         <div class="theme-footer_col-2">
+            <h2 class="theme-footer_col-header">Contact us</h2>
+            <div class="theme-footer_col-holder">
+               <a class="theme-footer_col-link" href="/contact">Contact Us</a>
+            </div>
+            <div class="theme-footer_col-holder">
+               <a class="theme-footer_col-link" href="/privacy">Privacy Policy</a>
+            </div>
+         </div>
+      </div>
+      <div class="copy-right">
+         <div class="theme-footer_copyright">
+	    &copy; ${datetime.now(pytz.timezone(settings.TIME_ZONE)).year} <a href="${marketing_link('ROOT')}" rel="external">${settings.PLATFORM_NAME}</a>. All Rights Reserved.
+            <a target="_blank" href="http://open.edx.org">
+            <img src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag.png" alt="Powered by Open edX" width="100">
+            </a>
+         </div>
+      </div>
+   </footer>
+</div>
+
+<!-- endcustom -->

@@ -1,0 +1,69 @@
+<%page expression_filter="h"/>
+<%inherit file="homepage/main-homepage.html" />
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from django.urls import reverse
+
+from openedx.core.djangolib.markup import HTML, Text
+%>
+
+<main id="main" aria-label="Content" tabindex="-1">
+    <section class="home">
+      <section class="promo-box">
+        <div class="promo-box_wrapper">
+          <img class="promo-box_img" id="promo-img" src="" alt="Homepage Promo Image">
+          <div class="promo-box_holder">
+            <h1 class="promo-box_heading">${_("Welcome to {platform_name}").format(platform_name=platform_name)}</h1>
+            <a class="theme-btn theme-btn__invert" href="/courses">Explore Courses</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="theme-courses_wrapper">
+        <h1 class="theme-courses_heading">${_("Upcoming Courses")}</h1>
+          <section class="theme-courses">
+            <%include file="${courses_list}" />
+          <!--</section>
+      </section>-->
+    </section>
+</main>
+
+% if show_homepage_promo_video:
+  <section id="video-modal" class="modal home-page-video-modal video-modal">
+    <div class="inner-wrapper">
+      <iframe title="YouTube Video" width="640" height="360" src="//www.youtube.com/embed/${homepage_promo_video_youtube_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+% endif
+
+<%block name="js_extra">
+   <script type="text/javascript">
+      $(window).load(function() {
+         if(getParameterByName('next')) {
+              $('#login').trigger("click");
+         }
+      })
+   </script>
+
+   <script type="text/javascript">
+window.onload = choosePic;
+
+var myPix = new Array("/static/simple_big_theme/images/homepage_banners/promo1.jpg","/static/simple_big_theme/images/homepage_banners/promo2.png","/static/simple_big_theme/images/homepage_banners/promo3.jpg","/static/simple_big_theme/images/homepage_banners/promo5.png");
+
+function choosePic() {
+     var randomNum = Math.floor(Math.random() * myPix.length);
+     document.getElementById("promo-img").src = myPix[randomNum];
+   }
+</script>
+</%block>
+
+% if show_signup_immediately is not UNDEFINED:
+  ## NOTE: This won't work in production, because anonymous views are cached, so it will
+  ## show either with or without this extra js for 3 minutes at a time.
+<script type="text/javascript">
+  $(window).load(function() {$('#signup_action').trigger("click");});
+</script>
+
+
+% endif

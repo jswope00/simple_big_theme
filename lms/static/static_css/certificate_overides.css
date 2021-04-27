@@ -1,0 +1,95 @@
+.accomplishment-type {
+margin: 30px 0px 10px 0px !important;
+}
+
+.accomplishment-rendering * {
+font-family: "Open Sans"!important;
+}
+
+span.accomplishment-type-label.hd-3 {
+font-size: 21px;
+}
+
+.hd-1.emphasized {
+font-weight: 600;
+}
+
+.accomplishment-orgs {
+display: none !important;
+}
+
+img.signatory-signature {
+display: block !important;
+margin: 0px auto !important;
+}
+
+.accomplishment-rendering {
+border: 5px solid #231f1f;
+}
+
+@media print {
+html, body {
+width: 210mm;
+height: 0cm;
+padding:0cm;
+margin: 0cm;
+overflow: hidden;
+}
+
+.wrapper-accomplishment-rendering{
+margin: 0cm;
+border: initial;
+border-radius: initial;
+width: initial;
+min-height: initial;
+box-shadow: initial;
+background: initial;
+page-break-after: auto;
+padding: 0cm;
+overflow: hidden;
+
+
+}
+
+.accomplishment-rendering{
+
+top: 0 !important;
+left: 0 !important;
+right: 0 !important ;
+bottom:0 !important ;
+position: absolute !important ;
+padding: 20px !important;
+margin:0 !important;
+height: 100% !important;
+width: 100% !important;
+background-position: 100% !important;
+page-break-after: auto !important;
+background-repeat: no-repeat !important;
+overflow: hidden;
+
+}
+.layout-accomplishment .accomplishment-signatories .signatory {
+max-width: 34%;
+min-width: 33%;
+margin-right: 5%;
+margin-left: 5%;
+}
+img.signatory-signature {
+min-height: 70px !important;
+}
+
+span.logo-img {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+span.logo-img img {
+width: 92% !important;
+}
+}
+
+span.accomplishment-summary.copy.copy-lead {
+    padding: 0px 12px;
+}
+

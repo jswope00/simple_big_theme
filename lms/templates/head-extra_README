@@ -1,0 +1,3 @@
+## Seems like a bug where you've got to define exactly where static_content.html is, and you've got to have it in your theme. I would rather keep it in edx-platform and refer to it there, since I don't change it. But I hit errors when trying to accomplish this. 
+#
+### Also in this file, I can't figure out how to get into the style_overrides conditional. So I'm just making a CSS reference outside the conditional
